@@ -313,6 +313,7 @@ input {
 
 .partner {
     height: 100px;
+    margin-left: 5vw;
 }
 
 .partner-list {
@@ -433,6 +434,15 @@ input {
     flex-direction: column;
     gap: 4px;
     width: fit-content;
+}
+
+#marquee{
+    position: relative;
+}
+
+#marquee img{
+    display: inline-block;
+    float: left;
 }
 
 @media (min-width: 1280px) {
