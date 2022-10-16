@@ -6,6 +6,7 @@
     <!--    <link rel="stylesheet" href="./css/main.css">-->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -442,6 +443,7 @@
     </div>
     <div class="partners">
         <div class="img-line">
+            <div id="marquee">
             <img class="partner" src="./files/p1.jpg" alt="Partners / Sber"/>
             <img class="partner" src="./files/p2.jpg" alt="Partners / Gazprombank"/>
             <img class="partner" src="./files/p3.jpg" alt="Partners / Gazprom"/>
@@ -449,6 +451,23 @@
             <img class="partner" src="./files/p5.jpg" alt="Partners / Ural"/>
             <img class="partner" src="./files/p6.jpg" alt="Partners / Tele2"/>
             <img class="partner" src="./files/p7.jpg" alt="Partners / Polus"/>
+            <img class="partner" src="./files/p12.jpg" alt="Partners / Polus"/>
+            <img class="partner" src="./files/p13.jpg" alt="Partners / Sber"/>
+            <img class="partner" src="./files/p14.jpg" alt="Partners / Gazprombank"/>
+            <img class="partner" src="./files/p15.jpg" alt="Partners / Gazprom"/>
+            <img class="partner" src="./files/p16.jpg" alt="Partners / Alfa"/>
+            <img class="partner" src="./files/p17.jpg" alt="Partners / Ural"/>
+            <img class="partner" src="./files/p18.jpg" alt="Partners / Tele2"/>
+            <img class="partner" src="./files/p19.jpg" alt="Partners / Polus"/>
+            <img class="partner" src="./files/p20.jpg" alt="Partners / Polus"/>
+            <img class="partner" src="./files/p21.jpg" alt="Partners / Sber"/>
+            <img class="partner" src="./files/p22.jpg" alt="Partners / Gazprombank"/>
+            <img class="partner" src="./files/p23.jpg" alt="Partners / Gazprom"/>
+            <img class="partner" src="./files/p24.jpg" alt="Partners / Alfa"/>
+            <img class="partner" src="./files/p25.jpg" alt="Partners / Ural"/>
+            <img class="partner" src="./files/p26.jpg" alt="Partners / Tele2"/>
+            <img class="partner" src="./files/p27.jpg" alt="Partners / Polus"/>
+            </div>
         </div>
     </div>
     <div class="absolute-margin">
@@ -607,4 +626,31 @@
     </div>
 </div>
 </body>
+<script>
+    $(function () {
+        var marquee = $("#marquee");
+        var container = $(".img-line");
+        var w = $("#marquee").width();
+        console.log(w);
+
+        marquee.append($(".container").find("#marquee").clone());
+
+        var reset = function () {
+            $(this).css("margin-left", "0%");
+            $(this).animate(
+                {"margin-left": "-100%"}, 50000, 'linear', reset);
+        };
+
+        $(marquee).mouseover(function (e) {
+            $(this).animate().stop();
+            e.stopPropagation();
+        });
+        $(marquee).mouseout(function (e) {
+            $(this).stop().animate({"margin-left": "-100%"}, 50000, 'linear', reset);
+            e.stopPropagation();
+        });
+        reset.call(container.find(marquee));
+
+    });
+</script>
 </html>
